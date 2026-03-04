@@ -1,14 +1,12 @@
-import java.util.ArrayList;
-import java.util.List;
-
-public class Student {
+public class Employee {
     private String name;
     private int age;
-    private String group;
-    public Student(String name, int age, String group) {
+    private String job;
+
+    public Employee(String name, int age, String job) {
         this.name = name;
         this.age = age;
-        this.group = group;
+        this.job = job;
     }
 
     public String getName() {
@@ -20,14 +18,15 @@ public class Student {
     public int getAge() {
         return age;
     }
-    public void setAge(int age) {
-        this.age = age;
-    }
-    public String getGroup() {
-        return group;
-    }
-    public void setGroup(String group) {
-        this.group = group;
+    public void setAge(int age) throws Mistake{
+        if (age < 0) {
+            throw new Mistake("age is smaller than 0");
+        } else {
+            this.age = age;
+        }    }
+    public String getJob() {return job;}
+    public void setJob(String job) {
+        this.job = job;
     }
 
     @Override
@@ -35,7 +34,7 @@ public class Student {
         return "Student{" +
                 "age=" + age +
                 ", name='" + name + '\'' +
-                ", group='" + group + '\'' +
+                ", group='" + job + '\'' +
                 '}';
     }
 

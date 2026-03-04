@@ -1,24 +1,37 @@
 import java.util.ArrayList;
+import java.util.List;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        ArrayList<Student> students = new ArrayList<>();
-        students.add(new Student("Bekzat", 16, "Java"));
-        students.add(new Student("Karl", 17, "JavaScript"));
-        students.add(new Student("Alex", 18, "Java"));
-        students.add(new Student("Boston", 19, "JavaScript"));
-        students.add(new Student("Alexia", 20, "Java"));
-        students.add(new Student("Nurbol", 21, "JavaScript"));
-        students.add(new Student("Robert", 22, "Java"));
-        students.add(new Student("Ronaldo", 23, "JavaScript"));
-        students.add(new Student("Messi", 24, "Java"));
+        ArrayList<Employee> employees = new ArrayList<>(List.of(
+                new Employee("employee1", 34, "builder"),
+                new Employee("employee2", 26, "doctor"),
+                new Employee("employee3", 35, "manager"),
+                new Employee("employee4", 49, null)
+        ));
 
-        StudentInterfaceImpl studentInterface = new StudentInterfaceImpl();
-        studentInterface.filterStudents(students, "Java", "JavaScript");
-        studentInterface.getAllStudents(students);
-        studentInterface.filterByAge(students, 18, 20);
-        studentInterface.filterByName(students, 'B');
+        for (Employee employee : employees) {
+            if(employee.getName().equals("employee1")) {
+                try {
+                    employee.setAge(-46);
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());;
+                }
+            }
+        }
+        for (Employee employee : employees) {
+            System.out.println(employee.toString());
+        }
+
+        try{
+            employees.get(6);
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            System.out.println("program over");
+        }
+
     }
 }
