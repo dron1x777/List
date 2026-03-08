@@ -1,25 +1,23 @@
 package DataBase;
-
-import Model.Pharmacy;
-
-import java.util.ArrayList;
+import Model.Actor;
+import Model.Movie;
+import java.util.LinkedList;
 import java.util.List;
 
 public class DataBase {
-    private List<Pharmacy> pharmacies = new ArrayList<>();
+    private List<Movie> movies = new LinkedList<>();
 
+    public void setMovies1(List<Movie> movies) {
+        this.movies = movies;
+    }
+    public List<Movie> getMovies() {
+        return movies;
+    }
 
-    public void setPharmacies1(List<Pharmacy> pharmacies) {
-        this.pharmacies = pharmacies;
+    public void setMovies(Movie movie) {
+        this.movies.add(movie);
     }
-    public List<Pharmacy> getPharmacies() {
-        return pharmacies;
-    }
-
-    public void setPharmacies(Pharmacy pharmacy) {
-        this.pharmacies.add(pharmacy);
-    }
-    public void deletePharmacy(Pharmacy pharmacy) {
-        this.pharmacies.remove(pharmacy);
+    public void deletePharmacy(Movie movie) {
+        this.movies.remove(movie);
     }
 }
